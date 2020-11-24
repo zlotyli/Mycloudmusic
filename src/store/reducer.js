@@ -1,5 +1,5 @@
 // 合并多个组件的reducer
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 
 // 导入recommend中的reducer
 import {reducer as recommendReducer} from '../pages/discover/c-pages/recommend/store'

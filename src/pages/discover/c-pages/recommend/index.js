@@ -1,30 +1,36 @@
-import React, { memo,useEffect } from 'react';
-import { connect, useDispatch, useSelector, shallowEqual } from 'react-redux';
-import { getTopBannerAction } from './store/actionCreators';
+import React, { memo } from 'react';
+//导入推荐页的style样式
+import { 
+  RecommendWrapper,
+  Content,
+  RecommendLeft,
+  RecommendRight
+} from './style';
+
+// 导入子组件部分
+// 导入轮播图组件
+import WYTopBanner from './c-cpns/top-banner';
+// 导入热门推荐组件
+import WYHotRecommend from './c-cpns/hot-recommend';
+// 导入新碟上架组件
+import WYNewAlbum from './c-cpns/new-album';
+// 导入榜单组件
+import WYRecommendRanking from './c-cpns/recommend-ranking';
 function WYRecommend(props) {
 
-  /* 组件和redux关联目的: 
-          获取state中数据(这里指state.recommend.topBanners)
-          和进行操作(这里指getTopBannerAction)
-  */
-  //通过使用useSelector Hook来获取到store中state中的数据
-  // useSelector接收两个参数，第一个为函数，函数中state为store中的state，并返回一个对象
-  const { topBanners } = useSelector(state => ({
-    topBanners: state.recommend.topBanners
-  }),shallowEqual)
-
-  // 通过useDispatch直接获取到dispatch--而不用使用connect和mapDispatch
-  const dispatch = useDispatch();
-
-  // 发起网路请求
-  useEffect(()=>{
-    dispatch(getTopBannerAction());
-  },[dispatch])  
-
+  
   return (
-    <div>
-      <h2>WYRecommend {topBanners.length}</h2>
-    </div>
+    <RecommendWrapper>
+      <WYTopBanner /> 
+      <Content className="wrap-v2">
+        <RecommendLeft>
+          <WYHotRecommend />
+          <WYNewAlbum/>
+          <WYRecommendRanking/>
+        </RecommendLeft>
+        <RecommendRight></RecommendRight>
+      </Content>
+    </RecommendWrapper>
   )
 }
 
@@ -32,7 +38,7 @@ function WYRecommend(props) {
 export default (memo(WYRecommend))
 
 
-
+//使用connect时为下方。以通过hooks改进，在top-banner的index.js中
 // function WYRecommend(props) {
 //   // 发起网路请求
 //   const {getBanners,topBanners}  = props;//取出获取轮播图数据的方法和轮播图数据

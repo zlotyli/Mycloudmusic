@@ -36,7 +36,7 @@ export const HeaderLeft = styled.div`
       position: relative;
       a {
         display: block;
-        padding: 0 20px;
+        padding: 0 19px;
         color: #ccc;
       }
 
@@ -89,6 +89,7 @@ export const HeaderRight = styled.div`
     input {
       &::placeholder {
         font-size: 12px;
+        color: #9b9b9b;
       }
     }
   }
@@ -109,5 +110,8 @@ export const HeaderRight = styled.div`
       border: 1px solid #ccc;
       color: #fff;
     }
+  }
+  > div{
+    padding:0 24px 0 0;
   }
 `
