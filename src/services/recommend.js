@@ -15,3 +15,12 @@ export function getHotRecommends(limit){
     }
   })
 }
+// 对于recommend中新碟上架的请求--对应new-album中的数据
+export function getNewAlbum(limit){
+  return request({
+    url: '/top/album',
+    params:{
+      limit
+    }
+  })
+}
