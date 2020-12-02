@@ -16,11 +16,21 @@ export function getHotRecommends(limit){
   })
 }
 // 对于recommend中新碟上架的请求--对应new-album中的数据
-export function getNewAlbum(limit){
+export function getNewAlbums(limit){
   return request({
-    url: '/top/album',
+    url: '/album/newest',
     params:{
       limit
     }
   })
+}
+// 对于recommend中榜单数据的请求--对应recommend-ranking中的数据
+export function getTopList(idx){
+  return request({
+    url:'/top/list',
+    params: {
+      idx
+    }
+  })
+  
 }
