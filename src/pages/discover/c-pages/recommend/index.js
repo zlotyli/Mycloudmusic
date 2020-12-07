@@ -8,6 +8,7 @@ import {
 } from './style';
 
 // 导入子组件部分
+// 左侧相关组件
 // 导入轮播图组件
 import WYTopBanner from './c-cpns/top-banner';
 // 导入热门推荐组件
@@ -16,6 +17,14 @@ import WYHotRecommend from './c-cpns/hot-recommend';
 import WYNewAlbum from './c-cpns/new-album';
 // 导入榜单组件
 import WYRecommendRanking from './c-cpns/recommend-ranking';
+
+// 右侧相关组件
+// 导入用户登录组件
+import WYUserLogin from './c-cpns/user-login';
+// 导入歌手入住组件
+import WYSettleSongs from './c-cpns/settle-songs';
+// 导入热门主播组件
+import WYHotAnchor from './c-cpns/hot-anchor';
 function WYRecommend(props) {
 
   
@@ -28,7 +37,11 @@ function WYRecommend(props) {
           <WYNewAlbum/>
           <WYRecommendRanking/>
         </RecommendLeft>
-        <RecommendRight></RecommendRight>
+        <RecommendRight>
+          <WYUserLogin/>
+          <WYSettleSongs/>
+          <WYHotAnchor/>
+        </RecommendRight>
       </Content>
     </RecommendWrapper>
   )

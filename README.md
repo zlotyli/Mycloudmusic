@@ -42,3 +42,9 @@
 4. recommend中榜单recommend-ranking组件的设计以及网络请求
 5. 和榜单有关的封装组件top-ranking的设计与完成
 6. recommend榜单组件recommend-ranking组件完成
+
+### day-5
+1. 全局播放小组件app-player-bar的封装以及使用
+2. 播放组件中redux存储数据的使用
+3. 播放组件功能以及进度调节的实现
+4. 播放组件进度的完善，主要能实现手动拖动进度条以及点击到对应播放节点

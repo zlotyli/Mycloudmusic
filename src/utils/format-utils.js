@@ -15,3 +15,42 @@ export function getCount(count){
 export function getSizeImage(imgUrl,size){
   return `${imgUrl}?param=${size}x${size}`;
 }
+// 封装的一时间转换函数
+export function formatDate(time, fmt) {
+  let date = new Date(time);
+
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+  }
+  let o = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds()
+  };
+  for (let k in o) {
+    if (new RegExp(`(${k})`).test(fmt)) {
+      let str = o[k] + '';
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
+    }
+  }
+  return fmt;
+};
+
+function padLeftZero(str) {
+  return ('00' + str).substr(str.length);
+};
+// 转化为月份日期
+export function formatMonthDay(time) {
+  return formatDate(time, "MM月dd日");
+}
+// 转化为播放时长
+export function formatMinuteSecond(time) {
+  return formatDate(time, "mm:ss");
+}
+
+// 通过id拼接上http等得到歌曲播放用到的src
+export function getPlaySong(id){
+  return `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
+}

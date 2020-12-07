@@ -9,9 +9,11 @@ import routes from './router';
 
 import store from './store';
 
-// 导入组件
+// 导入组件--全局
 import WYAppHeader from 'components/app-header';
-import WYAppFooter from 'components/app-footer'
+import WYAppFooter from 'components/app-footer';
+// 固定的播放器
+import WYAppPlayerBar from './pages/player/app-player-bar';
 
 export default memo(function App() {
   return (
@@ -20,6 +22,7 @@ export default memo(function App() {
         <WYAppHeader/>
         {renderRoutes(routes)}
         <WYAppFooter/>
+        <WYAppPlayerBar/>
       </HashRouter>
     </Provider>
     
