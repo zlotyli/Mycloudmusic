@@ -1,7 +1,7 @@
 import * as actionTypes from './constants';
 // 导入该组件要使用到的网路请求
 // 对于轮播图，热门推荐，新碟上架数据、榜单数据的请求的方法
-import { getTopBanners, getHotRecommends, getNewAlbums,getTopList } from '@/services/recommend';
+import { getTopBanners, getHotRecommends, getNewAlbums,getTopList ,getArtistList } from '@/services/recommend';
 
 // 对于要传入到dispatch中的工厂函数最好使用Action结尾
 
@@ -32,6 +32,10 @@ const changeNewRankingAction = (res) =>({ // 4.2 榜单中新歌榜--newRanking
 const changeOriginRankingAction = (res) =>({ // 4.3 榜单中原创榜--originRanking
   type: actionTypes.CHANGE_ORIGIN_RANKING,
   originRanking: res.playlist
+})
+const changeSettleSingsAction = (res) =>({// 5 入住歌手数据---settleSings
+  type:actionTypes.CHANGE_SETTLE_SONGS,
+  settleSings: res.artists
 })
 
 
@@ -80,6 +84,15 @@ export const getTopListAction = (idx)=>{// 对应 4
     })
   }
 }
+// 发送网络请求得到入住歌手的数据
+export const getSettleSingers = () =>{ // 对应5
+  return (dispatch)=>{
+    getArtistList(5001,5).then((res)=>{
+      dispatch(changeSettleSingsAction(res))
+    })
+  }
+}
+
 
 
 

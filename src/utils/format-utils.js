@@ -9,11 +9,13 @@ export function getCount(count){
   }else{
     return Math.floor(count / 10000000) / 10 + '亿';
   }
-}
+} 
 
 // 封装小图片的函数
 export function getSizeImage(imgUrl,size){
-  return `${imgUrl}?param=${size}x${size}`;
+  if(imgUrl){
+    return `${imgUrl}?param=${size}x${size}`;
+  }
 }
 // 封装的一时间转换函数
 export function formatDate(time, fmt) {

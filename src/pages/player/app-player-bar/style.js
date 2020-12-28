@@ -46,6 +46,9 @@ export const Control = styled.div`
   .next {
     background-position: -80px -130px;
   }
+  button{
+    cursor:pointer;
+  }
 `
 
 export const PlayInfo = styled.div`
@@ -57,8 +60,18 @@ export const PlayInfo = styled.div`
     width: 34px;
     height: 34px;
     border-radius: 5px;
+    position:relative;
+    overflow:hidden;
   }
-
+  .littlecover{
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    background-position: 0 -80px;
+    text-indent:-9999px;
+  }
   .info {
     flex: 1;
     color: #a1a1a1;
@@ -167,9 +180,9 @@ export const Operator = styled.div`
             return "-3px -344px";
         }
       }};
-      &:hover{
+      /* &:hover{
         background-position: -33px -344px;
-      }
+      } */
     }
 
     .playlist {

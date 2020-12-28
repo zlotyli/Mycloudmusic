@@ -32,5 +32,15 @@ export function getTopList(idx){
       idx
     }
   })
-  
+}
+
+// 对于recommend中入驻歌手数据的请求--对应settle-songs中的数据
+export function getArtistList(cat,limit){
+  return request({
+    url:'/artist/list',
+    params:{
+      cat,
+      limit
+    }
+  })
 }

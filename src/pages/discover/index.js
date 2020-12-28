@@ -1,4 +1,4 @@
-import React, { memo,useEffect } from 'react';
+import React, { memo,useEffect, Suspense } from 'react';
 import { NavLink } from 'react-router-dom'
 import {renderRoutes} from 'react-router-config'
 
@@ -31,7 +31,9 @@ export default memo(function WYDiscover(props) {
           }
         </TopMenu>
       </div>
-      {renderRoutes(props.route.routes)}
+      <Suspense fallback={<div>page loading</div>}>
+        {renderRoutes(props.route.routes)}
+      </Suspense>
     </DiscoverWrapper>
   )
 })

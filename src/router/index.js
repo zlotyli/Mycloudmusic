@@ -1,17 +1,19 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom';
+const WYDiscover = React.lazy(() => import('@/pages/discover'));
+const WYFriend = React.lazy(()=>import('@/pages/friend'));
+const WYMine = React.lazy(()=>import('@/pages/mine'));
 
-import WYDiscover from '@/pages/discover';
-import WYFriend from '@/pages/friend';
-import WYMine from '@/pages/mine';
 
 // 导入discover的子路由
-import WYRecommend from '@/pages/discover/c-pages/recommend';
-import WYSongs from '@/pages/discover/c-pages/songs';
-import WYRanking from '@/pages/discover/c-pages/ranking';
-import WYAlbum from '@/pages/discover/c-pages/album';
-import WYArtist from '@/pages/discover/c-pages/artist';
-import WYDjradio from '@/pages/discover/c-pages/djradio'
+const WYRecommend = React.lazy(()=>import('@/pages/discover/c-pages/recommend'));
+const WYSongs = React.lazy(()=>import('@/pages/discover/c-pages/songs'));
+const WYRanking = React.lazy(()=>import('@/pages/discover/c-pages/ranking'));
+const WYAlbum = React.lazy(()=>import('@/pages/discover/c-pages/album'));
+const WYArtist = React.lazy(()=>import('@/pages/discover/c-pages/artist'));
+const WYDjradio = React.lazy(()=>import('@/pages/discover/c-pages/djradio'));
+const WYPlayer = React.lazy(()=>import('@/pages/player'));
+
 // 建立路由映射
 
 const routes = [
@@ -59,6 +61,10 @@ const routes = [
       {
         path: "/discover/album",
         component: WYAlbum
+      },
+      {
+        path: "/discover/player",
+        component: WYPlayer
       }
     ]
   },

@@ -10,7 +10,9 @@ const defaultState = Map({//使用map优化
 
   upRanking:{}, // 榜单中的飙升榜数据
   newRanking:{}, // 榜单中的新歌榜数据
-  originRanking:{} // 榜单中的原创榜数据
+  originRanking:{}, // 榜单中的原创榜数据
+
+  settleSings : [] // 入住歌手的数据
 });
 function reducer(state = defaultState,action){
   switch(action.type){
@@ -27,6 +29,8 @@ function reducer(state = defaultState,action){
       return state.set('newRanking',action.newRanking);
     case actionTypes.CHANGE_ORIGIN_RANKING://给榜单中的飙升榜数据赋值
       return state.set('originRanking',action.originRanking); 
+    case actionTypes.CHANGE_SETTLE_SONGS: //给入住歌手数据赋值
+      return state.set('settleSings',action.settleSings);
     default:
       return state;
   }

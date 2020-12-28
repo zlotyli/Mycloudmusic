@@ -12,3 +12,6 @@ export const CHANGE_UP_RANKING = 'recommend/CAHNGE_UP_RANKING';
 export const CHANGE_NEW_RANKING = 'recommend/CAHNGE_NEW_RANKING';
 // 当为榜单中原创榜时
 export const CHANGE_ORIGIN_RANKING = 'recommend/CAHNGE_ORIGIN_RANKING';
+
+// 当为入住歌手数据时
+export const CHANGE_SETTLE_SONGS = 'recommend/CHANGE_SETTLE_SONGS';
