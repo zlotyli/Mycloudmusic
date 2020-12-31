@@ -124,4 +124,21 @@ body, textarea, select, input, button {
   background-color: rgba(0, 0, 0, .5);
   color: #fff;
 }
+.tips-class .ant-message-notice-content {
+  position:fixed;
+  bottom:48px;
+  right: 250px;
+  width: 152px;
+  height: 49px;
+  background: url(../img/playbar_sprite.png) no-repeat;
+  background-position: 0 -287px;
+  text-align: center;
+  color: #fff;
+  line-height: 37px;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  box-shadow: none;
+  padding:0 0;
+}
 

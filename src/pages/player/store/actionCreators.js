@@ -170,3 +170,15 @@ export const getCommentHotAction = (id,offset = 0) =>{
     })
   }
 }
+// 将新的歌曲添加到歌曲列表中
+export const addToPlayListAction = (song)=>{
+  return (dispatch,getState)=>{
+    const playList = getState().getIn(['player','playList']);
+    
+    if(playList.findIndex(item=>item.id === song.id) === -1){
+      playList.push(song);
+      console.log(playList);
+      dispatch(changePlayListAction(playList));
+    }
+  }
+}

@@ -46,7 +46,7 @@ export default memo(function WYAppPlayerBar() {
     currentLyricIndex: state.getIn(['player','currentLyricIndex']),//获取当前播放的歌曲中当前演唱歌词在歌词数组中的索引
     playList:state.getIn(['player','playList']),//获取播放列表
   }),shallowEqual);
-  const dispatch  = useDispatch();
+  const dispatch = useDispatch();
   
   // 三、other hooks
   useEffect(()=>{
