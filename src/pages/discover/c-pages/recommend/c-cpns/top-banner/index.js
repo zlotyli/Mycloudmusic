@@ -47,7 +47,9 @@ export default memo(function WYTopBanner() {
   const bannerRef = useRef()
   // 该hooks为了缓存数据所用,注意返回的是一函数。---用于监听轮播图片切换时，将背景图url也改变，对应走马灯自己api
   const bannerChange = useCallback((from,to)=>{
-    setCurrentIndex(to);
+    setTimeout(()=>{
+      setCurrentIndex(to);
+    },0)
   },[])
 
 
