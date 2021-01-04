@@ -4,7 +4,7 @@ import {
   getLyric,//请求歌曲歌词信息
   getSimiPlaylist,//请求包含当前歌曲的歌单
   getSimiSongs, //请求当前歌曲的相似歌曲
-  getCommentHot//请求当前歌曲的热门评论
+  getComments//请求当前歌曲的评论
 } from '@/services/player';
 // 导入action常量
 import * as actionTypes from './constants';
@@ -38,9 +38,9 @@ const changeSimiSongsAction = (simiSongs)=>({//8.当前播放歌曲的相似歌�
   type:actionTypes.CHANGE_SIMI_SONGS,
   simiSongs
 })
-const changeCommentHotAction = (commentHot) =>({
-  type:actionTypes.CHANGE_CURRENT_SONG_HOT_COMMENT,
-  commentHot
+const changeCommentHotAction = (comments) =>({
+  type:actionTypes.CHANGE_CURRENT_SONG_COMMENTS,
+  comments
 })
 // 当操作逻辑很简单时，直接导出同步的actions--需要对外暴露
 export const changeSequenceAction = (sequence)=>({// 4. 改变播放行为--sequence
@@ -73,8 +73,8 @@ export const getSongDetailAction = (ids)=>{//对应 1
       dispatch(getSimiPlayListAction(song.id));
       // 请求当前歌曲的相似歌曲数据
       dispatch(getSimiSongsAction(song.id));
-      // 请求当前歌曲的热门评论
-      dispatch(getCommentHotAction(song.id));
+      // 请求当前歌曲的评论
+      dispatch(getCommentsAction(song.id));
     }else{//没找到歌曲请求歌曲数据
       //请求歌曲数据
       getSongDetail(ids).then(res=>{
@@ -95,7 +95,7 @@ export const getSongDetailAction = (ids)=>{//对应 1
         // 请求当前歌曲的相似歌曲数据
         dispatch(getSimiSongsAction(song.id));
         // 请求当前歌曲的热门评论
-        dispatch(getCommentHotAction(song.id));
+        dispatch(getCommentsAction(song.id));
       })
     }
   } 
@@ -132,8 +132,8 @@ export const cutCurrentSongAction = (tag)=>{
     dispatch(getSimiPlayListAction(currentSong.id));
     // 请求当前歌曲的相似歌曲数据
     dispatch(getSimiSongsAction(currentSong.id));
-    // 请求当前歌曲的热门评论
-    dispatch(getCommentHotAction(currentSong.id));
+    // 请求当前歌曲的评论
+    dispatch(getCommentsAction(currentSong.id));
   }
 }
 // 处理歌曲歌词的actions---供异步的getSongDetailAction派发
@@ -163,10 +163,10 @@ export const getSimiSongsAction = (id) =>{ //对应8
   }
 }
 // 请求当前歌曲的热门评论，并派发同步actions来存储到state中
-export const getCommentHotAction = (id,offset = 0) =>{
+export const getCommentsAction = (id,offset = 0) =>{
   return dispatch =>{
-    getCommentHot(id,offset).then( res=>{
-      dispatch(changeCommentHotAction(res.hotComments));
+    getComments(id,offset).then( res=>{
+      dispatch(changeCommentHotAction(res));
     })
   }
 }
@@ -177,7 +177,6 @@ export const addToPlayListAction = (song)=>{
     
     if(playList.findIndex(item=>item.id === song.id) === -1){
       playList.push(song);
-      console.log(playList);
       dispatch(changePlayListAction(playList));
     }
   }

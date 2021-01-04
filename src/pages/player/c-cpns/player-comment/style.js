@@ -90,14 +90,19 @@ export const CommentTop = styled.div`
   }
 `
 export const CommentInfo = styled.div`
-  .hot{
-    height: 23px;
-    border-bottom: 1px solid #ccc;
-    font-size: 12px;
-    font-weight: 700;
-    color: #333;
+  .hot-comments,.all-comments{
+    .hot,.all{
+      height: 23px;
+      border-bottom: 1px solid #ccc;
+      font-size: 12px;
+      font-weight: 700;
+      color: #333;
+    }
+    div:first-of-type{
+      border-top:none;
+    }
   }
-  div:first-of-type{
-    border-top:none;
+  .hot-comments{
+    margin-bottom: 30px;
   }
 `

@@ -1,9 +1,10 @@
 import React, { memo } from 'react'
 import { CommentWrapper } from './style'
-import { getCount,formatMonthDay } from '@/utils/format-utils'
+import { getCount,formatMonthDay,formatHourMinute } from '@/utils/format-utils'
 export default memo(function WYSongsComment(props) {
-  const {user,content,likedCount,time} = props.commentHot;
-  
+  const {user,content,likedCount,time} = props.comment;
+  const replied = props.beReplied || [];
+  console.log('replied',replied);
   return (
     <CommentWrapper>
       <div className="head">
@@ -18,8 +19,15 @@ export default memo(function WYSongsComment(props) {
           {user.vipRights?<img src="//p6.music.126.net/obj/wo3DlcOGw6DClTvDisK1/4213923065/dc4e/2b9c/7677/20a6644c6e3a093d7accce919ae7b169.png" alt="" className='vip'/>:null}
           ：{content}
         </div>
+        {replied.length?
+          <div className="reply">
+            <a href="#/user">{replied[0].user&&replied[0].user.nickname}</a>
+            : {replied[0].content}
+          </div>
+          :null
+        }
         <div className="other">
-          <div className="time">{formatMonthDay(time)}</div>
+          <div className="time">{props.tag === 'hot'?formatMonthDay(time):formatHourMinute(time)}</div>
           <div href="todo" className="star">
             <i className="icon sprite_icon3"></i> ({getCount(likedCount)})
             <span className="seq">|</span>

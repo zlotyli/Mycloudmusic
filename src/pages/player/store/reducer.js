@@ -84,7 +84,7 @@ const defaultState = Map({
   currentLyricIndex:0,//存放当前歌曲正在演唱的歌词在总歌词中的索引
   simiPlayList:[],//包含这首歌的歌单
   simiSongs:[],//当前歌曲的相似歌曲
-  commentHot:[],//当前歌曲的热门评论
+  comments:{},//当前歌曲的评论
 }); 
 function reducer(state=defaultState,action){
   switch (action.type){
@@ -104,8 +104,8 @@ function reducer(state=defaultState,action){
       return state.set('simiPlayList',action.simiPlayList);
     case actionTypes.CHANGE_SIMI_SONGS://设置当前歌曲的相似歌曲
       return state.set('simiSongs',action.simiSongs);
-    case actionTypes.CHANGE_CURRENT_SONG_HOT_COMMENT://设置当前歌曲的热门评论
-      return state.set('commentHot',action.commentHot)
+    case actionTypes.CHANGE_CURRENT_SONG_COMMENTS://设置当前歌曲的热门评论
+      return state.set('comments',action.comments)
     default:
       return state;
   }

@@ -47,6 +47,10 @@ function padLeftZero(str) {
 export function formatMonthDay(time) {
   return formatDate(time, "MM月dd日");
 }
+// 转化为几时几刻
+export function formatHourMinute(time) {
+  return formatDate(time, 'hh:mm');
+}
 // 转化为播放时长
 export function formatMinuteSecond(time) {
   return formatDate(time, "mm:ss");

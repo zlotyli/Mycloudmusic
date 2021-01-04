@@ -35,13 +35,12 @@ export function getSimiSongs(id) {
     }
   })
 }
-// 定义获取到该歌曲的热门评论的条数
-export function getCommentHot(id,offset){
+// 定义获取到该歌曲的评论(里面含有热门评论以及全部评论、评论总个数)
+export function getComments(id,offset=0){
   return request({
-    url:'/comment/hot',
+    url:'/comment/music',
     params:{
       id,
-      type:0,
       offset
     }
   })

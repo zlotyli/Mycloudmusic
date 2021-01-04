@@ -33,6 +33,17 @@ export const CommentWrapper = styled.div`
           vertical-align: -1px;
         }
       }
+      .reply{
+        padding: 8px 19px;
+        margin-top: 10px;
+        line-height: 20px;
+        background: #f4f4f4;
+        border: 1px solid #dedede;
+        > a {
+          margin-right: 5px;
+          color: #0c73c2;
+        }
+      }
       .other{
         margin-top: 15px;
         display:flex;

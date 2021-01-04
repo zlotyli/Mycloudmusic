@@ -13,23 +13,26 @@ import WYSongsComment from '@/components/songs-comment';
 import WYPagination from 'components/pagination';
 
 // import { Pagination } from 'antd';
-import {getCommentHotAction} from '../../store/actionCreators'
+import {getCommentsAction} from '../../store/actionCreators'
 export default memo(function WYPlayerComment() {
   const [currentPage, setCurrentPage] = useState(1);
   // 从redux中获取当前播放的歌曲，以及其歌词列表
-  const { currentSong,commentHot } = useSelector((state)=>({
+  const { currentSong,comments } = useSelector((state)=>({
     currentSong: state.getIn(['player','currentSong']),
-    commentHot:state.getIn(['player','commentHot'])
+    comments:state.getIn(['player','comments'])
   }),shallowEqual);
   const dispatch = useDispatch();
   // other handle
   const onPageChange=(page,pageSize)=>{
     setCurrentPage(page);
-    dispatch(getCommentHotAction(currentSong.id,(page-1)*pageSize))
+    dispatch(getCommentsAction(currentSong.id,(page-1)*pageSize))
   }
+  const total = comments.total || 0;//定义歌曲总数
+  const hotComments = comments.hotComments || [];//热门评论数组
+  const allComments = comments.comments || [];//最新评论数组
   return (
     <CommentWrapper>
-      <WYThemeHeaderCME title='评论' num={currentSong.dt}/>
+      <WYThemeHeaderCME title='评论' num={total}/>
       <CommentTop>
         <div className="head">
           <img src="http://s4.music.126.net/style/web2/img/default/default_avatar.jpg?param=50y50" alt=""/>
@@ -52,15 +55,34 @@ export default memo(function WYPlayerComment() {
         </div>
       </CommentTop>
       <CommentInfo>
-        <h3 className='hot'>精彩评论</h3>
-        {commentHot.map((item,index)=>{
-          return (
-            <WYSongsComment key={item.commentId} className="comment-item" commentHot={item}/>
-          )
-        })}
+        {
+          hotComments.length?(
+            <div className='hot-comments'>
+              <h3 className='hot'>精彩评论</h3>
+              {
+                hotComments.map((item,index)=>{
+                  return (
+                    <WYSongsComment key={item.commentId} className="comment-item" comment={item} tag="hot" beReplied={item.beReplied}/>
+                  )
+                })
+              }
+              </div>
+            
+          ):null
+        }
+        <div className="all-comments">
+          {hotComments.length?<h3 className='all'>最新评论({total})</h3>:null}
+          {allComments.map((item,index)=>{
+            return (
+              <WYSongsComment key={item.commentId} className="comment-item" comment={item} tag="all" beReplied={item.beReplied}/>
+            )
+          })}
+        </div> 
+        
+        
       </CommentInfo>
       <WYPagination currentPage = {currentPage}
-                    total={1000}
+                    total={total}
                     pageSize={20}
                     onPageChange={onPageChange}/>
     </CommentWrapper>
