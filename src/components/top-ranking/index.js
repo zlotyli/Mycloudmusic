@@ -23,10 +23,16 @@ export default memo(function WYTopRanking(props) {
   // 处理播放
   const playMusic = (item)=>{//item.id即为歌曲的id，通过调用播放组件中的异步actions-getDetailAction方法
     dispatch(getSongDetailAction(item.id));
+    message.open({
+      key:'tips-play-01',//增加标识，使之只存在一个
+      content: '已开始播放',//设置内容
+      className:'tips-class',//设置其样式
+      duration: 1//设置自动关闭的秒数
+    })
   }
   const addToplaylist = (item)=>{
     message.open({
-      key:'tips',//增加标识，使之只存在一个
+      key:'tips-add',//增加标识，使之只存在一个
       content: '已添加到播放列表',//设置内容
       className:'tips-class',//设置其样式
       duration: 1//设置自动关闭的秒数

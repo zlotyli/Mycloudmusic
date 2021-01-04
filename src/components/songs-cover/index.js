@@ -11,7 +11,7 @@ export default memo(function WYSongsCover(props) {
   return (
     <SongsCoverWrapper>
       <div className="cover-top">
-        <img src={getSizeImage(info.picUrl,140)} alt=""/>
+        <img src={getSizeImage(info.picUrl||info.coverImgUrl,140)} alt=""/>
         <div className="cover sprite_covor">
           <div className="info sprite_covor">
             <span>
@@ -22,7 +22,7 @@ export default memo(function WYSongsCover(props) {
           </div>
         </div>
       </div>
-      <div className="cover-bottom">
+      <div className={`cover-source ${props.textnowrap?'text-nowrap':''}`}>
         {info.name}
       </div>
       <div className="cover-source text-nowrap">

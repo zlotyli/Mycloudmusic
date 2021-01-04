@@ -1,3 +1,4 @@
+// 榜单页中将对象中的id、name、dt...分离出来
 export const getOtherSongObj = function(songs){
   const id = songs.id;
   const name = songs.name;

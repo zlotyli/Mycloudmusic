@@ -1,18 +1,21 @@
 // 左侧歌曲的评论信息
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
 
 import {
   CommentWrapper,
   CommentTop,
   CommentInfo,
-  CommentPagination
+  // CommentPagination
 } from './style';
 import WYThemeHeaderCME from '@/components/theme-header-cme';
 import WYSongsComment from '@/components/songs-comment';
-import { Pagination } from 'antd';
+import WYPagination from 'components/pagination';
+
+// import { Pagination } from 'antd';
 import {getCommentHotAction} from '../../store/actionCreators'
 export default memo(function WYPlayerComment() {
+  const [currentPage, setCurrentPage] = useState(1);
   // 从redux中获取当前播放的歌曲，以及其歌词列表
   const { currentSong,commentHot } = useSelector((state)=>({
     currentSong: state.getIn(['player','currentSong']),
@@ -20,18 +23,9 @@ export default memo(function WYPlayerComment() {
   }),shallowEqual);
   const dispatch = useDispatch();
   // other handle
-  const changePage=(page,pageSize)=>{
+  const onPageChange=(page,pageSize)=>{
+    setCurrentPage(page);
     dispatch(getCommentHotAction(currentSong.id,(page-1)*pageSize))
-  }
-
-  function itemRender(current, type, originalElement) {
-    if (type === 'prev') {
-      return <a>上一页</a>;
-    }
-    if (type === 'next') {
-      return <a>下一页</a>;
-    }
-    return originalElement;
   }
   return (
     <CommentWrapper>
@@ -65,17 +59,10 @@ export default memo(function WYPlayerComment() {
           )
         })}
       </CommentInfo>
-      <CommentPagination>
-        <Pagination defaultCurrent={1} 
-                    defaultPageSize={20} 
-                    pageSize={20} 
-                    total={6000} 
-                    showSizeChanger={false} 
-                    responsive={true} 
-                    showTitle={true}
-                    onChange={changePage}
-                    itemRender={itemRender}/>
-      </CommentPagination>
+      <WYPagination currentPage = {currentPage}
+                    total={1000}
+                    pageSize={20}
+                    onPageChange={onPageChange}/>
     </CommentWrapper>
   )
 })
