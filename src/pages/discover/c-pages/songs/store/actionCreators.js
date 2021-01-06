@@ -1,4 +1,4 @@
-import * as actionTypes from './constaints';
+import * as actionTypes from './constants';
 // 导入本组件的网络请求函数 
 import { getSongCategory,getSongCategoryList } from "@/services/songs";
 // 导入工具函数
@@ -32,7 +32,6 @@ export const getCategoryAction = () => {
 }
 // 得到分类下对应的歌单的数据
 export const getSongsListAction = (page)=>{
-  console.log(page);
   return (dispatch,getState)=>{
     // 获得当前分类
     const name = getState().getIn(['songs','currentCategory']);

@@ -110,6 +110,11 @@ export const CategoryWrapper = styled.div`
           text-decoration:underline;
         }
       }
+      .link.selected{
+        background: #a7a7a7;
+        color: #fff;
+        padding: 2px 6px;
+      }
 
       .divider {
         margin: 0 12px;

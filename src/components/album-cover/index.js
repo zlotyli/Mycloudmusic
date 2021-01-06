@@ -1,3 +1,4 @@
+// 新碟上架中的歌曲封面
 import React, { memo } from 'react'
 // 导入样式组件
 import { AlbumWrapper } from './style'

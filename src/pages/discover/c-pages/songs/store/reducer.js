@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import * as actionTypes from './constaints';
+import * as actionTypes from './constants';
 const defaultStatus = Map({
   category:[],//分类列表
   currentCategory:'全部',//当前分类

@@ -1,3 +1,5 @@
+// 推荐页中热门推荐板块、歌单中的封面图
+
 import React, { memo } from 'react';
 // 导入工具函数用于处理大数字，以及处理图片大小
 import { getCount,getSizeImage } from '@/utils/format-utils';

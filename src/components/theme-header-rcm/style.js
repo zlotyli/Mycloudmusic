@@ -29,6 +29,11 @@ export const HeaderWrapper = styled.div`
           color: #ccc;
         }
       }
+      .item:last-child{
+        span{
+          display:none;
+        } 
+      }
     }
   }
 

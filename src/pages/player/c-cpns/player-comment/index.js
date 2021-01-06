@@ -25,7 +25,7 @@ export default memo(function WYPlayerComment() {
   // other handle
   const onPageChange=(page,pageSize)=>{
     setCurrentPage(page);
-    dispatch(getCommentsAction(currentSong.id,(page-1)*pageSize))
+    dispatch(getCommentsAction(currentSong.id,(page-1)*20))
   }
   const total = comments.total || 0;//定义歌曲总数
   const hotComments = comments.hotComments || [];//热门评论数组

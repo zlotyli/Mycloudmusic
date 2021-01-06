@@ -1,10 +1,10 @@
+// 歌词中评论行的样式
 import React, { memo } from 'react'
 import { CommentWrapper } from './style'
-import { getCount,formatMonthDay,formatHourMinute } from '@/utils/format-utils'
+import { getCount,formatYearDay,formatHourMinute } from '@/utils/format-utils'
 export default memo(function WYSongsComment(props) {
   const {user,content,likedCount,time} = props.comment;
   const replied = props.beReplied || [];
-  console.log('replied',replied);
   return (
     <CommentWrapper>
       <div className="head">
@@ -27,7 +27,7 @@ export default memo(function WYSongsComment(props) {
           :null
         }
         <div className="other">
-          <div className="time">{props.tag === 'hot'?formatMonthDay(time):formatHourMinute(time)}</div>
+          <div className="time">{props.tag === 'hot'?formatYearDay(time):formatHourMinute(time)}</div>
           <div href="todo" className="star">
             <i className="icon sprite_icon3"></i> ({getCount(likedCount)})
             <span className="seq">|</span>

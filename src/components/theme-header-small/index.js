@@ -1,3 +1,4 @@
+// 发现推荐页右侧的小标题头
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 

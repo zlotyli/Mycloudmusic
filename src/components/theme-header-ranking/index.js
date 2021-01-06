@@ -1,3 +1,4 @@
+// 排行榜页的主题头
 import React, { memo } from 'react'
 import {HeaderWrapper} from './style'
 export default memo(function WYThemeHeaderRanking(props) {

@@ -5,7 +5,7 @@ import { Pagination } from 'antd';
 import { PaginationWrapper } from './style';
 
 export default memo(function WYPagination(props) {
-  const { currentPage, total, onPageChange } = props;
+  const { currentPage, total, onPageChange,pageSize } = props;
 
   // render function
   function itemRender(current, type, originalElement) {
@@ -25,7 +25,7 @@ export default memo(function WYPagination(props) {
         current={currentPage}
         defaultCurrent={1}
         total={total}
-        pageSize={35}
+        pageSize={pageSize}
         showSizeChanger={false}
         itemRender={itemRender}
         onChange={onPageChange} />

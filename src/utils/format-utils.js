@@ -25,6 +25,7 @@ export function formatDate(time, fmt) {
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
   }
   let o = {
+    'Y+': date.getFullYear(),
     'M+': date.getMonth() + 1,
     'd+': date.getDate(),
     'h+': date.getHours(),
@@ -43,6 +44,10 @@ export function formatDate(time, fmt) {
 function padLeftZero(str) {
   return ('00' + str).substr(str.length);
 };
+// 转换为年月日
+export function formatYearDay(time) {
+  return '20'+formatDate(time, "YY年MM月dd日");
+}
 // 转化为月份日期
 export function formatMonthDay(time) {
   return formatDate(time, "MM月dd日");
