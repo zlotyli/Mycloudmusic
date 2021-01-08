@@ -60,6 +60,9 @@ export default memo(function WYAppPlayerBar() {
       setIsPlaying(false);
     })
   },[currentSong])
+  useEffect(()=>{
+    setCurrentTime(0);
+  },[currentSong])
 
   // 定义audio的ref，方便取用
   const audioRef = useRef();

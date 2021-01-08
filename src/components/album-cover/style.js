@@ -22,6 +22,18 @@ export const AlbumWrapper = styled.div`
       background-position: 0 ${props => props.bgp};
       text-indent: -9999px;
     }
+    .play{
+      display:none;
+      position: absolute;
+      bottom: 5px;
+      right: 25px;
+      width: 22px;
+      height: 22px;
+      background-position: 0 -85px;
+    }
+    &:hover .play{
+      display: block;
+    }
   }
 
   .album-info {
@@ -34,7 +46,10 @@ export const AlbumWrapper = styled.div`
       text-overflow: ellipsis;
       overflow: hidden;
     }
-
+    .new-name{
+      font-size:14px;
+      margin: 8px 0 3px 0;
+    }
     .artist {
       color: #666;
     }

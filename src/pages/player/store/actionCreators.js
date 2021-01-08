@@ -6,6 +6,9 @@ import {
   getSimiSongs, //请求当前歌曲的相似歌曲
   getComments//请求当前歌曲的评论
 } from '@/services/player';
+// 因为此处获取到的info为新专辑的信息，其中id为专辑id，故需要将专辑id发送请求获取到内部所有的歌曲信息
+import { getAlbumDetail } from '@/services/album.js'
+
 // 导入action常量
 import * as actionTypes from './constants';
 // 导入随机数生成方法
@@ -179,5 +182,15 @@ export const addToPlayListAction = (song)=>{
       playList.push(song);
       dispatch(changePlayListAction(playList));
     }
+  }
+}
+// 将整张专辑里的音乐都添加到歌曲列表，并将其播放第一首
+export function addFullAlbumAction(aid) {
+  return (dispatch)=>{
+    
+    getAlbumDetail(aid).then(res=>{
+      dispatch(changePlayListAction(res.songs))//请求播放列表，并将整个专辑里面的歌曲添加入播放列表
+      dispatch(getSongDetailAction(res.songs[0].id));//播放第一首歌曲
+    })
   }
 }
