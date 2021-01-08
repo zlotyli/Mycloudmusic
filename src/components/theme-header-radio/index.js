@@ -1,4 +1,4 @@
-// 主播电台页的主题头
+// 主播电台页/歌手页的主题头
 import React, {memo} from 'react';
 
 import {
