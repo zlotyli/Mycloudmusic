@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useSelector,shallowEqual} from 'react-redux'
 import { ArtistListWrapper } from './style';
 // 导入公共组件
-import WYThemeHeaderRadio from 'components/theme-header-radio';
+import WYThemeHeaderCommon from 'components/theme-header-radio';
 // 导入子组件
 import WYArtistAlphaList from './c-cpns/artist-alpha-list';
 import WYArtistItem from './c-cpns/artist-item';
@@ -15,7 +15,7 @@ export default memo(function WYArtistList() {
 
   return (
     <ArtistListWrapper>
-      <WYThemeHeaderRadio title={currentType.name==='推荐歌手'?'热门歌手':currentType.name}/>
+      <WYThemeHeaderCommon title={currentType.name==='推荐歌手'?'热门歌手':currentType.name}/>
       <WYArtistAlphaList/>
       <div className="artist-list">
         {

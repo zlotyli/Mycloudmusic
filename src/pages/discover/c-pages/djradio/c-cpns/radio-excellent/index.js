@@ -5,7 +5,7 @@ import { ExcellentWrapper } from './style'
 // 导入异步actions
 import { getRadioRecommendAction } from '../../store/actionCreators'
 // 导入公共组价
-import WYThemeHeaderRadio from '@/components/theme-header-radio';
+import WYThemeHeaderCommon from '@/components/theme-header-radio';
 import WYRadioExcellentCover from '@/components/radio-excellent-cover';
 export default memo(function WYRadioExcellent() {
   // redux hooks
@@ -22,7 +22,7 @@ export default memo(function WYRadioExcellent() {
   }, [dispatch, currentId])
   return (
     <ExcellentWrapper>
-      <WYThemeHeaderRadio title='优秀新电台'/>
+      <WYThemeHeaderCommon title='优秀新电台'/>
       <div className="radio-list">
         {
           recommends.slice(0,5).map((item,index) => {

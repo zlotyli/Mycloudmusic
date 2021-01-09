@@ -61,6 +61,7 @@ export default memo(function WYAppPlayerBar() {
     })
   },[currentSong])
   useEffect(()=>{
+    audioRef.current.pause()
     setCurrentTime(0);
   },[currentSong])
 

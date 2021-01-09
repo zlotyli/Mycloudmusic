@@ -4,7 +4,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import { RankingWraper } from './style';
 // 导入公共样式
-import WYThemeHeaderRadio from '@/components/theme-header-radio';
+import WYThemeHeaderCommon from '@/components/theme-header-radio';
 import WYRadioRankingCover from '@/components/radio-ranking-cover';
 import WYPagination from '@/components/pagination';
 import { getHotRadiosAction } from '../../store/actionCreators'
@@ -33,7 +33,7 @@ export default memo(function WYRadioRanking() {
   }
   return (
     <RankingWraper>
-      <WYThemeHeaderRadio title='电台排行榜' rightSlot={['上升最快','最热电台']}/>
+      <WYThemeHeaderCommon title='电台排行榜' rightSlot={['上升最快','最热电台']}/>
       <div className="ranking-list">
         {
           radios.map((item,index)=>{

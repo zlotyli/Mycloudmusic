@@ -1,11 +1,11 @@
-// 主播电台页/歌手页的主题头
+// 主播电台页/歌手页/新碟上架页的主题头 
 import React, {memo} from 'react';
 
 import {
   HeaderWrapper
 } from "./style";
 
-export default memo(function WYThemeHeaderRadio(props) {
+export default memo(function WYThemeHeaderCommon(props) {
   const { title, rightSlot=[] } = props;
 
   return (

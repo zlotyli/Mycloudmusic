@@ -4,7 +4,7 @@ import { AllAlbumWrapper } from './style';
 // 导入actions
 import { getAllAlbumsAction } from '../../store/actionCreators';
 // 导入公共组件
-import WYThemeHeaderRadio from 'components/theme-header-radio';
+import WYThemeHeaderCommon from 'components/theme-header-radio';
 import WYAlbumCover from 'components/album-cover';
 import WYPagination from 'components/pagination';
 export default memo(function WYAllAlbum() {
@@ -29,7 +29,7 @@ export default memo(function WYAllAlbum() {
   const total = allTotal || 0;
   return (
     <AllAlbumWrapper>
-      <WYThemeHeaderRadio title='全部新碟'/>
+      <WYThemeHeaderCommon title='全部新碟'/>
       <div className="album-list">
         {
           albums.map((item,index)=>{
