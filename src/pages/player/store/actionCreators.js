@@ -143,7 +143,7 @@ export const cutCurrentSongAction = (tag)=>{
 export const getLyricAction = (id)=>{ //对应 5
   return dispatch => {
     getLyric(id).then(res=>{
-      const lyric = res.lrc.lyric;//得到歌词的数据
+      const lyric = res.lrc&&res.lrc.lyric;//得到歌词的数据
       const lyricList = parseLyric(lyric);//解析歌词
       dispatch(changeLyricListAction(lyricList));//派发对应的同步actions
     })

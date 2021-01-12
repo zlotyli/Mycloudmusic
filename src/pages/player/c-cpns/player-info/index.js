@@ -62,7 +62,7 @@ export default memo(function WYPlayerInfo() {
           <div className="lyric-info">
             {
               lyricList.slice(0,totalLyricCount).map((item, index) => {
-                return <p key={item.time} className="text">{item.content}</p>
+                return <p key={`${item.time+'-'+index}`} className="text">{item.content}</p>
               })
             }
           </div>

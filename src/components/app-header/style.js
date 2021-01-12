@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import sprite_01 from "@/assets/img/sprite_01.png";
 export const HeaderWrapper = styled.div`
-  height: 75px;
+  position: relative;
   font-size: 14px;
   color:#ccc;
   background-color: #242424;

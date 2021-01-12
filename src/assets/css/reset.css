@@ -141,4 +141,15 @@ body, textarea, select, input, button {
   box-shadow: none;
   padding:0 0;
 }
+/* 输入框input */
+.ant-input-affix-wrapper > input.ant-input{
+  font-size: 12px;
+}
+/* 取消输入框聚焦后的样式 */
+.ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused {
+  border:1px solid #d9d9d9;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 
