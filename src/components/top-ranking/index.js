@@ -31,6 +31,7 @@ export default memo(function WYTopRanking(props) {
     })
   }
   const addToplaylist = (item)=>{
+    console.log(item);
     message.open({
       key:'tips-add',//增加标识，使之只存在一个
       content: '已添加到播放列表',//设置内容

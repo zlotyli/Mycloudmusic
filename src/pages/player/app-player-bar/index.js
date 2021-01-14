@@ -72,9 +72,9 @@ export default memo(function WYAppPlayerBar() {
   // 四、other handle
   const lyriclist = lyricList || [];
   // 当前播放歌曲的图片url、歌手名、歌曲总时长、歌曲总歌词
-  const picUrl = (currentSong.al && currentSong.al.picUrl) || '';
-  const singerName = (currentSong.ar && currentSong.ar[0].name) || '未知歌手';
-  const duration = currentSong.dt || 0;//获取总时长
+  const picUrl = (currentSong.al && currentSong.al.picUrl) || (currentSong.artists&&currentSong.artists[0].img1v1Url) || '';
+  const singerName = (currentSong.ar && currentSong.ar[0].name) || (currentSong.artists&&currentSong.artists[0].name) || '未知歌手';
+  const duration = (currentSong.dt || currentSong.duration) || 0;//获取总时长
 
   const showDuration = formatDate(duration,'mm:ss');//格式化歌曲总时间
   const showCurrentTime = formatDate(currentTime,'mm:ss');//格式化歌曲当前播放时间

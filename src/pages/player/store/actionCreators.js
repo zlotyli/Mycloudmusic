@@ -131,7 +131,7 @@ export const cutCurrentSongAction = (tag)=>{
     dispatch(changeCurrentSongIndexAction(currentSongIndex));//改变当前播放歌曲的索引为目标索引
     // 请求该歌曲对应的歌词--派发异步actions
     dispatch(getLyricAction(currentSong.id));
-    // 请求包含当前歌曲的歌曲--派发异步actions
+    // 请求包含当前歌曲的歌单--派发异步actions
     dispatch(getSimiPlayListAction(currentSong.id));
     // 请求当前歌曲的相似歌曲数据
     dispatch(getSimiSongsAction(currentSong.id));

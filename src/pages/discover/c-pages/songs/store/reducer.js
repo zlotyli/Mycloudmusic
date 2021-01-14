@@ -14,7 +14,7 @@ export default function reducer(state=defaultStatus,action){
     case actionTypes.CHANGE_CATEGORY_SONGS://当为分类下对应的歌单数据时
       return state.set('categorySongs',action.categorySongs);
     default:
-      return defaultStatus
+      return state;
   }
   
 }

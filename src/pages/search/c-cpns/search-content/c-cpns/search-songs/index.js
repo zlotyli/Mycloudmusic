@@ -25,14 +25,15 @@ export default memo(function WYSearchSongs(props) {
       duration: 1//设置自动关闭的秒数
     })
   }
-  const addToplaylist = (id) =>{
+  const addToplaylist = (item) =>{
+    console.log(item);
     message.open({
       key:'tips-add-2',//增加标识，使之只存在一个
       content: '已添加到播放列表',//设置内容
       className:'tips-class',//设置其样式
       duration: 1//设置自动关闭的秒数
     })
-    dispatch(addToPlayListAction(id));
+    dispatch(addToPlayListAction(item));
   } 
   return (
     <SongsWrapper>
@@ -48,7 +49,7 @@ export default memo(function WYSearchSongs(props) {
                   {(item.mvid !== 0)&&<a href="#/mv" className="mv sprite_table">歌曲mv</a>}
                 </div>
                 <div className="tools">
-                  <button className="btn sprite_icon2 addto" onClick = {e=>addToplaylist(item.id)}></button>
+                  <button className="btn sprite_icon2 addto" onClick = {e=>addToplaylist(item)}></button>
                   <button className="btn sprite_table favor"></button>
                   <button className="btn sprite_table share"></button>
                   <button className="btn sprite_table download"></button>

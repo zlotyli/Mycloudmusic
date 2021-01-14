@@ -19,8 +19,8 @@ export default memo(function WYPlayList() {
             <div key={item.id} className={`play-item ${currentSongIndex === index?'active':''}`}>
               <div className="left">{item.name}</div>
               <div className="right">
-                <span className="singer">{item.ar&&item.ar[0].name}</span>
-                <span className="duration">{formatDate(item.dt,'mm:ss')}</span>
+                <span className="singer">{(item.ar&&item.ar[0].name) || (item.artists&&item.artists[0].name) }</span>
+                <span className="duration">{formatDate(item.dt||item.duration,'mm:ss')}</span>
                 <span className="sprite_playlist link"></span>
               </div>
             </div>

@@ -17,6 +17,6 @@ export default function reducer(state = defaultState,action){
     case actionTypes.CHANGE_ARTIST_LIST:
       return state.set("artistList", action.artistList);
     default:
-      return defaultState
+      return state;
   }
 }

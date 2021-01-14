@@ -13,6 +13,7 @@ export const ItemWrapper = styled.div`
     }
     .image_cover{
       background-position: 0 -670px;
+      text-indent: -9999px;
     }
   }
 
