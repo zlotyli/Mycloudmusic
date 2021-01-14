@@ -18,11 +18,13 @@ export default memo(function WYLyricPanel() {
     if(currentLyricIndex>0&&currentLyricIndex<3) return;
     scrollTo(panelRef.current,(currentLyricIndex - 3)*32,300)
   },)
+  // other handle
+  const lyriclist = lyricList || [];
   return (
     <PannelWrapper ref = {panelRef}>
       <div className="lrc-content">
         {
-          lyricList.map((item,index)=>{
+          lyriclist.map((item,index)=>{
             return (
               <div key={item.time} className={`lrc-item ${index === currentLyricIndex?'active':''}`}>
                 {item.content}

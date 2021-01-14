@@ -249,3 +249,54 @@ export const artistCategories = [
     ]
   },
 ]
+// 搜索页中的不同类型
+export const searchCategories = [
+  {
+    title:'songs',
+    name:'单曲',
+    type: 1,
+    pageSize:30
+  },
+  {
+    title:'artists',
+    name:'歌手',
+    type:100,
+    pageSize:90
+  },
+  {
+    title:'albums',
+    name:'专辑',
+    type:10,
+    pageSize:75
+  },
+  {
+    title:'videos',
+    name:'视频',
+    type:1014,
+    pageSize:20
+  },
+  {
+    title:'lyrics',
+    name:'歌词',
+    type:1006,
+    pageSize:30
+  },
+  {
+    title:'playlists',
+    name:'歌单',
+    type:1000,
+    pageSize:30
+  },
+  {
+    title:'djRadios',
+    name:'主播电台',
+    type:1009,
+    pageSize:30
+  },
+  {
+    title:'userprofiles',
+    name:'用户',
+    type:1002,
+    pageSize:30
+  }
+]

@@ -8,17 +8,22 @@ import {
 //导入工具函数
 import { nameChange } from '@/utils/search-utils';
 // 导入歌曲详情的异步actions，用于点击单曲后的转跳
-import { getSongDetailAction } from '@/pages/player/store'
+import { getSongDetailAction } from '@/pages/player/store';
+// import { getSearchSuggestAction } from '@/pages/search/store'
 const WYSearchBox = (props) => {
   // state and props
-  const {value,inputToBlur}  = props
+  const {value,inputToBlur,styleWidth}  = props;
+  
   // redux hooks
   const { suggests }  = useSelector((state)=>({
     suggests: state.getIn(['search','suggests']),//导入关键字返回的信息
   }),shallowEqual);
   const dispatch = useDispatch()
-  const nameArr = (suggests&&suggests.order) || [];
+  // other hooks
+  
   //other handle
+  const nameArr = (suggests&&suggests.order) || [];
+
   const handleClick = (e,type,id)=>{
     if ( e && e.preventDefault ){
       e.preventDefault();
@@ -34,7 +39,7 @@ const WYSearchBox = (props) => {
     }
   }
   return (
-    <SearchBoxWrapper>
+    <SearchBoxWrapper width={styleWidth} top={props.top} right={props.right}>
       <div className="tags">
         <a href="/to">{`搜“${value}”相关用户`}</a>&gt;
       </div>
@@ -43,6 +48,7 @@ const WYSearchBox = (props) => {
           {
             nameArr.map((item,index)=>{
               return (
+                (suggests[item]&&suggests[item].length>0)&&
                 <div className="info-item" key={item}>
                   <div className="head">
                     <i className={`sprite_icon2 icon ${item}`}></i>
@@ -50,10 +56,9 @@ const WYSearchBox = (props) => {
                   </div>
                   <div className="substance">
                     {
-                      suggests[item].map((contents,index)=>{
+                      suggests[item]&&suggests[item].map((contents,index)=>{
                           return <div className="news text-nowrap" key={contents.id} onMouseDown={e=>handleClick(e,item,contents.id)}>{contents.name}</div>
                       }) 
-                      
                     }
                   </div>
                 </div>

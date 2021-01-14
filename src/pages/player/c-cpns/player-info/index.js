@@ -27,8 +27,10 @@ export default memo(function WYPlayerInfo() {
   // other hook
 
   // other handle;
+  const lyriclist = lyricList || [];
   // 声明一变量来代表要展示的歌词行数
-  const totalLyricCount = isSpread ? lyricList.length : 13;
+  const totalLyricCount = isSpread ? lyriclist.length : 13;
+
   return (
     <InfoWrapper>
       <InfoLeft>
@@ -61,7 +63,7 @@ export default memo(function WYPlayerInfo() {
         <div className="lyric">
           <div className="lyric-info">
             {
-              lyricList.slice(0,totalLyricCount).map((item, index) => {
+              lyriclist.slice(0,totalLyricCount).map((item, index) => {
                 return <p key={`${item.time+'-'+index}`} className="text">{item.content}</p>
               })
             }

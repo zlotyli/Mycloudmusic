@@ -60,15 +60,17 @@ export default memo(function WYAppPlayerBar() {
       setIsPlaying(false);
     })
   },[currentSong])
-  useEffect(()=>{
-    audioRef.current.pause()
-    setCurrentTime(0);
-  },[currentSong])
+
+  // useEffect(()=>{
+  //   audioRef.current.pause()
+  //   setCurrentTime(0);
+  // },[currentSong])
 
   // 定义audio的ref，方便取用
   const audioRef = useRef();
 
   // 四、other handle
+  const lyriclist = lyricList || [];
   // 当前播放歌曲的图片url、歌手名、歌曲总时长、歌曲总歌词
   const picUrl = (currentSong.al && currentSong.al.picUrl) || '';
   const singerName = (currentSong.ar && currentSong.ar[0].name) || '未知歌手';
@@ -91,26 +93,28 @@ export default memo(function WYAppPlayerBar() {
       setCurrentTime(audioCurrentTime);//将当前播放的时间转换为毫秒存储到本组件的state中。
       setProgress(currentTime / duration * 100);//将当前播放的歌曲时间同步到state中的progress中用作slider展示
     }
+    if(lyriclist.length>0){
+      // 获取当前的正在演唱的歌词
+      let i = 0;//用i-1 来表示当前播放歌曲当前歌词在总歌词中的索引值
+      for(; i < lyriclist.length; i++){
+        let lyricItem = lyricList[i];
+        if(audioCurrentTime < lyricItem.time){
+          break;//匹配到后跳出循环
+        }
+      }
+      if(i-1 !== currentLyricIndex){//当不同时才派发--性能优化
+        dispatch(changeCurrentLyricIndexAction(i-1));//派发actions改变当前正在播放歌曲的当前歌词的索引值
+        const content = lyricList[i-1] && lyricList[i-1].content;
+        message.open({
+          key:'lyric',//增加标识，使之只存在一个
+          content: content,//设置内容
+          duration: 0,//关闭自动关闭;
+          className:'lyric-class',//设置其样式
+        })
 
-    // 获取当前的正在演唱的歌词
-    let i = 0;//用i-1 来表示当前播放歌曲当前歌词在总歌词中的索引值
-    for(; i < lyricList.length; i++){
-      let lyricItem = lyricList[i];
-      if(audioCurrentTime < lyricItem.time){
-        break;//匹配到后跳出循环
       }
     }
-    if(i-1 !== currentLyricIndex){//当不同时才派发--性能优化
-      dispatch(changeCurrentLyricIndexAction(i-1));//派发actions改变当前正在播放歌曲的当前歌词的索引值
-      const content = lyricList[i-1] && lyricList[i-1].content;
-      message.open({
-        key:'lyric',//增加标识，使之只存在一个
-        content: content,//设置内容
-        duration: 0,//关闭自动关闭;
-        className:'lyric-class',//设置其样式
-      })
-
-    }
+    
     
   }
   // 当监听到播放结束的回调函数

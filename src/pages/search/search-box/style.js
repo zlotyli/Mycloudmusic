@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 export const SearchBoxWrapper = styled.div`
-    width: 240px;
+    width: ${props=>props.width+'px'};
     position: absolute;
-    top: 58px;
-    right: 298px;
+    top: ${props=>props.top?'45px':'58px'};
+    right: ${props=>props.right?'0':'298px'};
     z-index: 99;
     font-size: 12px;
     border: 1px solid #bebebe;

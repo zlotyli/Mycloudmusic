@@ -1,9 +1,7 @@
-import React, { memo,useEffect, Suspense } from 'react';
+import React, { memo, Suspense } from 'react';
 import { NavLink } from 'react-router-dom'
 import {renderRoutes} from 'react-router-config'
 
-// 导入网路请求配置
-// import request from '@/services/request'
 
 // 导入本地数据，方便遍历
 import { discoverMenu } from '@/common/local-data.js'
@@ -13,9 +11,6 @@ import {
   TopMenu
 } from './style';
 export default memo(function WYDiscover(props) {
-  useEffect(()=>{
-    
-  },[])
   return (
     <DiscoverWrapper>
       <div className="top">

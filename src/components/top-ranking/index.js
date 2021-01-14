@@ -14,7 +14,7 @@ import {getSongDetailAction,addToPlayListAction} from '@/pages/player/store'
 export default memo(function WYTopRanking(props) {
   // props and state
   const { info } = props;
-  const tracks = info.tracks || [];
+  const tracks = (info&&info.tracks) || [];
 
   // redux hook
   const dispatch = useDispatch();

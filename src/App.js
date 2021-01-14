@@ -9,6 +9,8 @@ import routes from './router';
 
 import store from './store';
 
+
+
 // 导入组件--全局
 import WYAppHeader from 'components/app-header';
 import WYAppFooter from 'components/app-footer';
@@ -17,7 +19,7 @@ import WYAppPlayerBar from './pages/player/app-player-bar';
 
 export default memo(function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store}> 
       <HashRouter>
         <WYAppHeader/>
         <Suspense fallback={<div>page loading</div>}>
