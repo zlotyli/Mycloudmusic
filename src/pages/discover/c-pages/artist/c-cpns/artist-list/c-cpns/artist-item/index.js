@@ -6,7 +6,6 @@ import { ItemWrapper } from './style'
 
 export default memo(function WYArtistItem(props) {
   const { index,info} = props;
-  console.log(index,info);
   return (
     <ItemWrapper>
         {//前十个有图像

@@ -12,7 +12,7 @@ import { addFullAlbumAction } from '@/pages/player/store'
 
 export default memo(function WYAlbumCover(props) {
   // state and props
-  const { info,size=130,width=153,bgp="-845px" } = props;
+  const { info,imgSize=130,allWidth=153,bgp="-845px" } = props;
   // redux hooks
   const dispatch = useDispatch();
 
@@ -26,9 +26,9 @@ export default memo(function WYAlbumCover(props) {
     })
   }
   return (
-    <AlbumWrapper size={size} width={width} bgp={bgp}>
+    <AlbumWrapper size={imgSize} width={allWidth} bgp={bgp}>
       <div className="album-image">
-        <img src={getSizeImage(info.picUrl,size)} alt={info.name}/>
+        <img src={getSizeImage(info.picUrl,imgSize)} alt={info.name}/>
         <a href="/todo" className="cover sprite_covor">{info.name}</a>
         <i className="sprite_icon play" onClick={e=>playMusic(info)}></i>
       </div>

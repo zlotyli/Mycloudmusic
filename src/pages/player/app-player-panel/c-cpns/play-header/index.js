@@ -6,7 +6,7 @@ import {
   HeaderLeft,
   HeaderRight
 } from './style'
-export default memo(function WYPlayHeader() {
+export default memo(function WYPlayHeader(props) {
   // state and props
   // redux hook
   const {playList,currentSong} =  useSelector((state)=>({
@@ -30,6 +30,7 @@ export default memo(function WYPlayHeader() {
     </HeaderLeft> 
      <HeaderRight>
        {currentSong.name}
+       <span className="close sprite_playlist" onClick={e=>props.setNotShow(false)}></span>
      </HeaderRight>
     </HeaderWrapper>
   )

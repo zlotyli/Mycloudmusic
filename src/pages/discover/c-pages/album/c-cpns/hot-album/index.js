@@ -24,8 +24,8 @@ export default memo(function WYHotAlbum() {
         {
           hotAlbums.slice(0,10).map((item,index) => {
             return (
-              <WYAlbumCover size={130}
-                            width={153}
+              <WYAlbumCover imgSize={130}
+                            allWidth={153}
                             bgp={'-845px'}
                             key={item.id}
                             info={item}

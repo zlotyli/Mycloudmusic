@@ -51,4 +51,15 @@ export const HeaderRight = styled.div`
   text-align: center;
   color: #fff;
   font-size: 14px;
+  .close{
+    position:absolute;
+    right: 8px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+    background-position: -195px 9px;
+    &:hover{
+      background-position: -195px -21px;
+    }
+  }
 `

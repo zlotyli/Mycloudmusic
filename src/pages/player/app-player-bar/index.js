@@ -222,7 +222,7 @@ export default memo(function WYAppPlayerBar() {
       <audio  ref={audioRef} 
               onTimeUpdate={e=>timeUpdate(e)}
               onEnded={e => handleMusicEnded(e)}/>
-      {isShowPlayerList && <WYAppPlayerList/>}
+      {isShowPlayerList && <WYAppPlayerList setNotShow={setIsShowPlayerList}/>}
     </PlaybarWrapper>
   )
 })

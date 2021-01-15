@@ -22,7 +22,6 @@ export default memo(function WYArtistAlphaList() {
   useEffect(() => {
     dispatch(getArtistListAction(currentArea, currentType.type, currentAlpha));//将本字母中的歌手列表存储到redux的state中
   }, [currentAlpha, currentType, currentArea, dispatch]);
-  console.log(currentAlpha)
   return (
     <AlphaListWrapper hasTop={currentArea !== -1}>
       {//当地域不为全部(即不为推荐时)

@@ -7,6 +7,8 @@ import WYPagination from "components/pagination";
 import WYSearchTabs from './c-cpns/search-tabs';
 import WYSearchSongs from './c-cpns/search-songs';
 import WYSearchArtists from './c-cpns/search-artists';
+import WYSearchAlbums from './c-cpns/search-albums';
+import WYSearchVideos from './c-cpns/search-videos'
 // 导入action
 import { getSearchResultAction } from '../../store/actionCreators'
 export default memo(function WYSearchContent() {
@@ -34,6 +36,10 @@ export default memo(function WYSearchContent() {
         return <WYSearchSongs result={results.result}/>
       case 'artists':
         return <WYSearchArtists result={results.result}/>
+      case 'albums':
+        return <WYSearchAlbums result = {results.result}/>
+      case 'videos':
+        return <WYSearchVideos result = {results.result}/>
       default :
         return null;
     }

@@ -49,8 +49,8 @@ export default memo(function WYNewAlbum() {
                           <WYAlbumCover 
                               key={iten.id} 
                               info={iten} 
-                              size={100} 
-                              width={118}
+                              imgSize={100} 
+                              allWidth={118}
                               bgp="-570px"/>
                         )
                       })

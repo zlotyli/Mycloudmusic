@@ -104,6 +104,16 @@ export const SongRight = styled.div`
   .artist{
     width: 140px;
     margin-left: 10px;
+    display:flex;
+    .artist-item{
+      display:flex;
+      &:last-child{
+        .divider{
+          display: none;
+        }
+      }
+    }
+
   }
   .album{
     width: 157px;

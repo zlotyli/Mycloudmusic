@@ -34,8 +34,8 @@ export default memo(function WYAllAlbum() {
         {
           albums.map((item,index)=>{
             return (
-              <WYAlbumCover size={130}
-                            width={153}
+              <WYAlbumCover imgSize={130}
+                            allWidth={153}
                             bgp={'-845px'}
                             key={item.id}
                             info={item}/>

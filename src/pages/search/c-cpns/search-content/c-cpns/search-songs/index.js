@@ -56,7 +56,19 @@ export default memo(function WYSearchSongs(props) {
                 </div>
               </SongLeft>
               <SongRight>
-                <div className="artist text-nowrap">{item.artists[0].name}</div>
+                <div className="artist text-nowrap">
+                  {
+                    item.artists.map((iten,indey)=>{
+                      return (
+                        <div className="artist-item" key={iten.id}>
+                          <span>{iten.name}</span>
+                          <span className="divider">/</span>
+                        </div>
+                      )
+                    })
+                  }
+                  
+                </div>
                 <div className="album text-nowrap">{`《${item.album.name}》`}</div>
                 <div className="song-time">{formatDate(item.duration,'mm:ss')}</div>
               </SongRight>

@@ -5,6 +5,11 @@ export const PlayListWrapper = styled.div`
   position: relative;
   width: 553px;
   padding: 2px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .play-item {
     padding: 0 8px 0 25px;
@@ -16,11 +21,15 @@ export const PlayListWrapper = styled.div`
     line-height: 28px;
     color: #ccc;
 
-    &.active {
+    cursor: pointer;
+    &:hover,&.active {
       color: #fff;
       background-color: #000;
-
-      ::before {
+      & > .right > .duration{
+        color:#fff;
+      }
+    }
+    &.active::before {
         content: "";
         position: absolute;
         left: 8px;
@@ -28,7 +37,6 @@ export const PlayListWrapper = styled.div`
         height: 13px;
         background: url(${playListSprite}) -182px 0;
       }
-    }
 
     .right {
       display: flex;
@@ -40,6 +48,7 @@ export const PlayListWrapper = styled.div`
 
       .duration {
         width: 45px;
+        color: #666;
       }
 
       .link {
