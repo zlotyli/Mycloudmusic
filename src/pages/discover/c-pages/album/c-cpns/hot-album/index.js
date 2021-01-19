@@ -22,7 +22,7 @@ export default memo(function WYHotAlbum() {
       <WYThemeHeaderCommon title='热门新碟'/>
       <div className="album-list">
         {
-          hotAlbums.slice(0,10).map((item,index) => {
+          hotAlbums.length>0&&hotAlbums.slice(0,10).map((item,index) => {
             return (
               <WYAlbumCover imgSize={130}
                             allWidth={153}

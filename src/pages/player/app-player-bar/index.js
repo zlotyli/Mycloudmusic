@@ -50,7 +50,7 @@ export default memo(function WYAppPlayerBar() {
   
   // 三、other hooks
   useEffect(()=>{
-    dispatch(getSongDetailAction(167876));//派发异步的actions使store中的player.currentSong有值
+    dispatch(getSongDetailAction(108182));//派发异步的actions使store中的player.currentSong有值
   },[dispatch]);
   useEffect(()=>{
     audioRef.current.src = getPlaySong(currentSong.id);//请求到播放流数据--并在改变当前歌曲时更新;

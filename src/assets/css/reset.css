@@ -134,6 +134,8 @@ body, textarea, select, input, button {
   display: inline-block;
   padding: 5px 0;
   color: #c20c0c;
+  font-weight: bold;
+  font-size: 22px;
 }
 .tips-class .ant-message-notice-content {
   position:fixed;

@@ -77,7 +77,7 @@ export default memo(function WYSearchHeader() {
                 onBlur={inputBlur}
                 onChange={e=>valueChange(e)}
                 onPressEnter={handleEnter}/>
-        <span className="multiport btn"></span>
+        <span className="multiport btn" onClick={e=>handleEnter(e)}></span>
         {isShow&&<WYSearchBox styleWidth={418} value={inputValue} inputToBlur={inputToBlur} top={true} right={true}/>}
       </div>
     </SearchHeader>
