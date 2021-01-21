@@ -65,11 +65,11 @@ export default memo(function WYRankingList() {
                             (<img src={getSizeImage(item.al.picUrl, 50)} alt="" />) : null
                         }
                         <span className="play sprite_table" onClick={e=>handleClick(item)}></span>
-                        <span className="name">{item.name}</span>
+                        <span className="name text-nowrap">{item.name}</span>
                       </div>
                     </td>
                     <td>{formatMinuteSecond(item.dt)}</td>
-                    <td>{item.ar[0].name}</td>
+                    <td className="text-nowrap">{item.ar[0].name}</td>
                   </tr>
                 )
               })

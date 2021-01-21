@@ -7,7 +7,7 @@ export const SongsListWrapper = styled.div`
     table {
       width: 100%;
       border: 1px solid #d9d9d9;
-
+      table-layout:fixed;
       thead {
         th {
           height: 34px;
@@ -23,7 +23,9 @@ export const SongsListWrapper = styled.div`
           width: 78px;
           border-left: none;
         }
-
+        .title{
+          flex:1;
+        }
         .duration {
           width: 91px;
         }
@@ -80,6 +82,7 @@ export const SongsListWrapper = styled.div`
           }
 
           .name {
+            flex:1;
             margin-left: 10px;
           }
         }

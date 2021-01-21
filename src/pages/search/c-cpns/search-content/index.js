@@ -8,7 +8,10 @@ import WYSearchTabs from './c-cpns/search-tabs';
 import WYSearchSongs from './c-cpns/search-songs';
 import WYSearchArtists from './c-cpns/search-artists';
 import WYSearchAlbums from './c-cpns/search-albums';
-import WYSearchVideos from './c-cpns/search-videos'
+import WYSearchVideos from './c-cpns/search-videos';
+import WYSearchLyrics from './c-cpns/search-lyrics';
+import WYSearchPlaylists from './c-cpns/search-playlists';
+import WYSearchDjradios from './c-cpns/search-djRadios';
 // 导入action
 import { getSearchResultAction } from '../../store/actionCreators'
 export default memo(function WYSearchContent() {
@@ -40,6 +43,12 @@ export default memo(function WYSearchContent() {
         return <WYSearchAlbums result = {results.result}/>
       case 'videos':
         return <WYSearchVideos result = {results.result}/>
+      case 'lyrics':
+        return <WYSearchLyrics result = {results.result}/>
+      case 'playlists':
+        return <WYSearchPlaylists result = {results.result}/> 
+      case 'djRadios':
+        return <WYSearchDjradios result = {results.result}/>
       default :
         return null;
     }

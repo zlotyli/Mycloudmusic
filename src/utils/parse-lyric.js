@@ -45,6 +45,20 @@ export function parseLyric(lyricString){
     return lyric;
   }
 }
+export function parseLyricNoTime(lyricString){
+  if(lyricString){
+    const lineStrings = lyricString.split("\n");//先切分每一行的歌词--其中有可能存在空行
+    const lyric = [];//存储最终的歌词
+    for (let line of lineStrings){//line为‘[00:55.020]你其实明白我心意’---注意第三个有可能是二或三位数
+      
+        const content = line.trim();//将时间剔除就行
+
+        lyric.push(content);
+    }
+    
+    return lyric;
+  }
+}
 
 // 滚动歌词
 export function scrollTo(element, to, duration) {

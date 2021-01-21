@@ -9,7 +9,17 @@ export function getCount(count){
   }else{
     return Math.floor(count / 10000000) / 10 + '亿';
   }
-} 
+}
+export function getmCount(count){
+  if(count<0) return;
+  if(count<100000){
+    return count;
+  }else if(Math.floor(count / 100000) < 100000){
+    return Math.floor(count / 1000) / 10 + '万'; 
+  }else{
+    return Math.floor(count / 10000000) / 10 + '亿';
+  }
+}
 
 // 封装小图片的函数
 export function getSizeImage(imgUrl,size){

@@ -49,9 +49,9 @@ export default memo(function WYAppPlayerBar() {
   const dispatch = useDispatch();
   
   // 三、other hooks
-  useEffect(()=>{
-    dispatch(getSongDetailAction(108182));//派发异步的actions使store中的player.currentSong有值
-  },[dispatch]);
+  // useEffect(()=>{
+  //   dispatch(getSongDetailAction(108182));//派发异步的actions使store中的player.currentSong有值
+  // },[dispatch]);
   useEffect(()=>{
     audioRef.current.src = getPlaySong(currentSong.id);//请求到播放流数据--并在改变当前歌曲时更新;
     audioRef.current.play().then(res=>{//刚开始请求页面后play()是失败的，后面请求页面后才会成功--谷歌自带机制
@@ -184,7 +184,7 @@ export default memo(function WYAppPlayerBar() {
         <PlayInfo>
           <div className="image">
             <NavLink to="/discover/player">
-              <img src={getSizeImage(picUrl,35)} alt="myimage"/>
+              <img src={getSizeImage(picUrl||'http://s4.music.126.net/style/web2/img/default/default_album.jpg',35)} alt="myimage"/>
               <i href="/todo" className="littlecover sprite_player">songs</i>
             </NavLink>
           </div>

@@ -47,7 +47,7 @@ export const getRadioRecommendAction = (currentId) => {
 // 传入分类id请求当前分类下最热电台的电台排行榜的数据
 export const getHotRadiosAction = (currentId, offset=0) => {
   return dispatch => {
-    console.log('currentId',currentId)
+    // console.log('currentId',currentId)
     getDjRadios(currentId, 30, offset).then(res => {
       dispatch(changeHotRadiosAction(res));
     })

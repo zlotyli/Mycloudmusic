@@ -32,7 +32,7 @@ export const getHotAlbumsAction = () => {
 export const getAllAlbumsAction = (page) => {
   return dispatch => {
     getTopAlbums(30, (page-1) * 30).then(res => {
-      console.log(res);
+      // console.log(res);
       dispatch(changeAllAlbumAction(res));
       dispatch(changeAllTotalAction(res.total));
     })

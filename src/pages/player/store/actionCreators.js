@@ -93,7 +93,7 @@ export const getSongDetailAction = (ids)=>{//对应 1
         dispatch(changeCurrentSongAction(song))//修改当前播放的歌曲信息为新添加的歌曲
         // 请求该歌曲对应的歌词
         dispatch(getLyricAction(song.id))
-        // 请求包含当前歌曲的歌曲--派发异步actions
+        // 请求包含当前歌曲的歌单--派发异步actions
         dispatch(getSimiPlayListAction(song.id));
         // 请求当前歌曲的相似歌曲数据
         dispatch(getSimiSongsAction(song.id));

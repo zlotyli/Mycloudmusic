@@ -11,7 +11,8 @@ export default memo(function WYSearchVideos(props) {
             return (
               <WYVideoCover imgXsize={159}
                             imgYsize={90}
-                            info={item}/>
+                            info={item}
+                            key={item.title}/>
             )
           })
         }

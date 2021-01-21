@@ -20,7 +20,7 @@ export const changeCurrentTypeAction = (type) => ({ // 2.改变当前地区下�
 export const getArtistListAction = (area, type, alpha) => {
   return dispatch => {
     getArtistList(area, type, alpha).then(res => {
-      console.log(res);
+      // console.log(res);
       dispatch(changeArtistListAction(res.artists))
     })
   }
