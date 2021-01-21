@@ -121,6 +121,9 @@ body, textarea, select, input, button {
 .tab_bg{
   background: url(../img/tab_bg.png) no-repeat 0 9999px;
 }
+.ban_mask{
+  background: url(../img/ban_mask.png) no-repeat;
+}
 .lyric-class .ant-message-notice-content {
   position: fixed;
   padding: 0 0;

@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom'
 import { getSizeImage, formatDate,getPlaySong} from '@/utils/format-utils';
 // 导入store中actionCreators中的actions
 import { 
-  getSongDetailAction,//异步请求歌曲详情并添加到播放列表相关的actions
+  // getSongDetailAction,//异步请求歌曲详情并添加到播放列表相关的actions
   changeSequenceAction,//同步actions--改变播放形式
   cutCurrentSongAction,//异步actions--处理上下曲的切换逻辑
   changeCurrentLyricIndexAction,//同步actions--改变当前播放歌曲中当前歌词在歌词数组的索引

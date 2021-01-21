@@ -28,9 +28,9 @@ export function getSizeImage(imgUrl,size){
   }
 }
 // 封装mv封面图片 
-export function getMvSizeImage(imgUrl,xsize,ysize){
+export function getMoreSizeImage(imgUrl,xsize,ysize){
   if(imgUrl){
-    return `${imgUrl}?param=${xsize}x${ysize}`;
+    return `${imgUrl}?param=${xsize}y${ysize}`;
   }
 }
 // 封装的一时间转换函数

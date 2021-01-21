@@ -9,6 +9,7 @@ import {
 import { nameChange } from '@/utils/search-utils';
 // 导入歌曲详情的异步actions，用于点击单曲后的转跳
 import { getSongDetailAction } from '@/pages/player/store';
+import { getHotSongsAndInfoAction } from '@/pages/singer/store'
 // import { getSearchSuggestAction } from '@/pages/search/store'
 const WYSearchBox = (props) => {
   // state and props
@@ -34,9 +35,14 @@ const WYSearchBox = (props) => {
       dispatch(getSongDetailAction(id));
       // 跳转该路由
       props.history.replace('/discover/player');
-      inputToBlur();//触发Input失焦来关闭该组件
-
     }
+    if(type === 'artists' ){
+      // 请求到该歌曲的数据
+      dispatch(getHotSongsAndInfoAction(id));
+      // 跳转该路由
+      props.history.replace('/discover/singer');
+    }
+    inputToBlur();//触发Input失焦来关闭该组件
   }
   return (
     <SearchBoxWrapper width={styleWidth} top={props.top} right={props.right}>

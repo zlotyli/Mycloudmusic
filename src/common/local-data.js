@@ -300,3 +300,36 @@ export const searchCategories = [
     pageSize:30
   }
 ]
+// 公共组价热门歌手的数组
+export const hotSingers = [
+  {
+    name:'薛之谦',
+    id:5781,
+    imgSrc:'http://p1.music.126.net/1tSJODTpcbZvNTCdsn4RYA==/109951165034950656.jpg'
+  },
+  {
+    name:'刘大壮',
+    id:31165848,
+    imgSrc:'http://p1.music.126.net/-vAAAt4wZ8bAJCkilZVbcQ==/109951163780408942.jpg'
+  },
+  {
+    name:'林俊杰',
+    id:3684,
+    imgSrc:'http://p1.music.126.net/-nXVAQB1nsLgBwyJEuwcZQ==/109951165400835887.jpg'
+  },
+  {
+    name:'陈奕迅',
+    id:2116,
+    imgSrc:'http://p1.music.126.net/IcmEh9_Ks9KU5uD0G9gy3Q==/109951165566550867.jpg'
+  },
+  {
+    name:'是七叔呢',
+    id:31002807,
+    imgSrc:'http://p1.music.126.net/MniU-nsBTWnDSsU80PT35A==/109951163731919117.jpg'
+  },
+  {
+    name:'许嵩',
+    id:5771,
+    imgSrc:'http://p1.music.126.net/ATZ8-mOxophKXrLC0iXMZw==/109951163536269820.jpg'
+  }
+]

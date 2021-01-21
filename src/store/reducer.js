@@ -17,6 +17,8 @@ import {reducer as artistReducer} from '../pages/discover/c-pages/artist/store'
 import {reducer as albumReducer} from '../pages/discover/c-pages/album/store'
 // 导入搜索页search的reducer
 import {reducer as searchReducer} from '../pages/search/store';
+// 导入歌手页singer的reducer
+import {reducer as singerReducer} from '../pages/singer/store';
 const cReducer = combineReducers({
   recommend: recommendReducer,//推荐页中的数据，包括轮播图。新碟上架，热门推荐...的数据,
   player: playerReducer,//播放组件中的数据，里面包括与播放组件相关的数据
@@ -26,5 +28,6 @@ const cReducer = combineReducers({
   artist: artistReducer,//发现/歌手页的里面的数据
   album: albumReducer,//发现/新碟上架页里面的数据
   search: searchReducer,//搜索页里面的数据
+  singer: singerReducer,//歌手页里面呢的数据
 });
 export default cReducer;

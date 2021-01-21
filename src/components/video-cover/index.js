@@ -1,13 +1,13 @@
 import React, { memo } from 'react';
 import { VideoWrapper } from './style'
-import { getCount,getMvSizeImage,formatDate } from '@/utils/format-utils'
+import { getCount,getMoreSizeImage,formatDate } from '@/utils/format-utils'
 
 export default memo(function WYVideoCover(props) {
   const {imgXsize,imgYsize,info} = props
   return (
     <VideoWrapper xsize={imgXsize} ysize={imgYsize}>
       <div className="video-image">
-        <img src={ getMvSizeImage(info.coverUrl,imgXsize,imgYsize) } alt={info.name}/>
+        <img src={ getMoreSizeImage(info.coverUrl,imgXsize,imgYsize) } alt={info.name}/>
         <div className="viewers">
           <i className="sprite_icon3 play"></i>
           <span>{getCount(info.playTime)}</span>

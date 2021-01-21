@@ -14,6 +14,7 @@ const WYArtist = React.lazy(()=>import('@/pages/discover/c-pages/artist'));
 const WYDjradio = React.lazy(()=>import('@/pages/discover/c-pages/djradio'));
 const WYPlayer = React.lazy(()=>import('@/pages/player'));
 const WYSearch = React.lazy(()=>import('@/pages/search'));
+const WYSinger = React.lazy(()=>import('@/pages/singer'));
 
 // 建立路由映射
 
@@ -67,6 +68,10 @@ const routes = [
         path: "/discover/player",
         component: WYPlayer
       },
+      {
+        path: "/discover/singer",
+        component: WYSinger
+      }
       
     ]
   },

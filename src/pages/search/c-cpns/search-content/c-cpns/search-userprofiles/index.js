@@ -7,7 +7,6 @@ import { getSizeImage } from '@/utils/format-utils'
 
 export default memo(function WYSearchUserprofiles(props) {
   const {result} = props;
-  console.log(result);
   return (
     <UserWrapper>
       {
