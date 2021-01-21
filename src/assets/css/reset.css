@@ -133,9 +133,13 @@ body, textarea, select, input, button {
 .lyric-class .ant-message-notice-content span{
   display: inline-block;
   padding: 5px 0;
-  color: #c20c0c;
+  /* color: #c20c0c; */
   font-weight: bold;
   font-size: 22px;
+  background: linear-gradient(to right, blue, red,blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 .tips-class .ant-message-notice-content {
   position:fixed;

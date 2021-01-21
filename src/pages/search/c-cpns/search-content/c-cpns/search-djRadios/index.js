@@ -19,8 +19,10 @@ export default memo(function WYSearchDjradios(props) {
               <div className="origin">
                 by&nbsp;
                 <span className="dj-name">{radio.dj.nickname}</span>
-                <i></i>
-                <i className='gender sprite_icon2'></i>
+                {radio.dj.description&&<i className="des sprite_icon2"></i>}
+                {radio.dj.experts&&<i className="experts sprite_icon2"></i>}
+                {(radio.dj.gender!==0)&&<i className='gender sprite_icon2'></i>}
+                
               </div>
             </RadioItem>
           )

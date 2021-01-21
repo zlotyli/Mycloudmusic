@@ -12,6 +12,7 @@ import WYSearchVideos from './c-cpns/search-videos';
 import WYSearchLyrics from './c-cpns/search-lyrics';
 import WYSearchPlaylists from './c-cpns/search-playlists';
 import WYSearchDjradios from './c-cpns/search-djRadios';
+import WYSearchUserprofiles from './c-cpns/search-userprofiles';
 // 导入action
 import { getSearchResultAction } from '../../store/actionCreators'
 export default memo(function WYSearchContent() {
@@ -27,7 +28,7 @@ export default memo(function WYSearchContent() {
   // other hook
   useEffect(()=>{
     setCurrentPage(1)
-  },[keywords]);
+  },[keywords,results.name]);
   // other handle
   const onPageChange = (page,pageSize)=>{
     setCurrentPage(page);
@@ -49,6 +50,8 @@ export default memo(function WYSearchContent() {
         return <WYSearchPlaylists result = {results.result}/> 
       case 'djRadios':
         return <WYSearchDjradios result = {results.result}/>
+      case 'userprofiles':
+        return <WYSearchUserprofiles result = {results.result}/>
       default :
         return null;
     }

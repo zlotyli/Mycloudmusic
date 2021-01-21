@@ -47,6 +47,16 @@ export const RadioItem = styled.div`
         text-decoration:underline;
       }
     }
+    .des{
+      width: 11px;
+      height: 13px;
+      background-position: 0 1px;
+    }
+    .experts{
+      width: 12px;
+      height: 13px;
+      background-position: -65px -840px;
+    }
     .gender{
       width: 14px;
       height: 15px;
