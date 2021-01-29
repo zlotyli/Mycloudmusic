@@ -100,6 +100,12 @@ export const SongItemRight = styled.div`
           display: none;
         }
       }
+      .artist-name{
+        cursor:pointer;
+        &:hover{
+          text-decoration:underline;
+        }
+      }
     }
 
   }

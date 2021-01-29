@@ -55,7 +55,34 @@ export const HeaderWrapper = styled.div`
       cursor:pointer;
     }
   }
+}
+.tab-bar{
+  height: 39px;
+  border: 1px solid #ccc;
+  border-width: 0 1px;
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  display:flex;
   
-
+  .tab-item{
+    position: relative;
+    .inside{
+      height: 37px;
+      width: 134px;
+      padding: 2px 2px 0 0;
+      line-height: 37px;
+      font-size:14px;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+  .tab-item:hover,.active{
+    background-position: left -90px;
+    border-right:1px solid #ccc;
+    .inside{
+      width: 133px;
+    }
+  }
+  
 }
 `

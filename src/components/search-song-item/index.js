@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import { useDispatch } from 'react-redux'
 import { message } from 'antd';
+import { withRouter } from 'react-router-dom'
+
 import {
   SongsItemWrapper,
   SongItemLeft,
@@ -8,9 +10,12 @@ import {
 } from './style'
 // 导入播放中的actions
 import {getSongDetailAction,addToPlayListAction} from '@/pages/player/store'
+// 转跳到歌手页
+import { getHotSongsAndInfoAction } from '@/pages/singer/store'
+
 import { formatDate } from '@/utils/format-utils';
 
-export default memo(function WYSearchSongItem(props) {
+const WYSearchSongItem = (props) => {
   // state and props
   const {song} = props;
   // redux hook
@@ -34,14 +39,21 @@ export default memo(function WYSearchSongItem(props) {
     })
     dispatch(addToPlayListAction(item));
   } 
+  // 点击歌手名转跳
+  const handleClick = (id) =>{
+    dispatch(getHotSongsAndInfoAction(id));
+      // 跳转该路由
+    props.history.replace('/discover/singer');
+  }
   return (
-    
     <SongsItemWrapper>
       <SongItemLeft>
         <div className="func">
           <button className="btn sprite_table play" onClick={e=>playMusic(song.id)}></button>
           <div className="song-name text-nowrap">{song.name}</div>
-          <div className="remarks text-nowrap">{`${song.alias.length?('- ('+song.alias[0]+')'):''}`}</div>
+          <div className="remarks text-nowrap">
+            {`${song.alias.length?('- ('+song.alias[0]+')'):''}`}
+          </div>
           {(song.mvid !== 0)&&<a href="#/mv" className="mv sprite_table">歌曲mv</a>}
         </div>
         <div className="tools">
@@ -57,7 +69,7 @@ export default memo(function WYSearchSongItem(props) {
             song.artists.map((iten,indey)=>{
               return (
                 <div className="artist-item" key={iten.id}>
-                  <span>{iten.name}</span>
+                  <span className="artist-name" onClick={e=>handleClick(iten.id)}>{iten.name}</span>
                   <span className="divider">/</span>
                 </div>
               )
@@ -69,4 +81,5 @@ export default memo(function WYSearchSongItem(props) {
       </SongItemRight>
     </SongsItemWrapper>
   )
-})
+}
+export default withRouter(memo(WYSearchSongItem))

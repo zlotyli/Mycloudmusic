@@ -12,7 +12,7 @@ export default function reducer(state=defalutState,action){
     case actionTypes.CHANGE_HOTSONGS:
       return state.set('hotSongs',action.hotSongs);
     case actionTypes.CHANGE_CURRENTTYPE:
-      return state.get('currentType',action.currentType);
+      return state.set('currentType',action.currentType);
     default:
       return state;
   }

@@ -333,3 +333,22 @@ export const hotSingers = [
     imgSrc:'http://p1.music.126.net/ATZ8-mOxophKXrLC0iXMZw==/109951163536269820.jpg'
   }
 ]
+// 歌手页中标签页中的数据
+export const tabArray = [
+  {
+    title:'热门作品',
+    type:'songs'
+  },
+  {
+    title:'所有专辑',
+    type:'albums'
+  },
+  {
+    title:'相关MV',
+    type:'videos'
+  },
+  {
+    title:'艺人介绍',
+    type:'introduce'
+  }
+]

@@ -1,6 +1,8 @@
 // 新碟上架中的歌曲封面
 import React, { memo } from 'react'
 import { useDispatch } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+
 import {message} from 'antd';
 
 // 导入样式组件
@@ -8,9 +10,11 @@ import { AlbumWrapper } from './style'
 import { getSizeImage } from '@/utils/format-utils'
 // 导入播放组件player/store中的异步actions方法
 import { addFullAlbumAction } from '@/pages/player/store'
+// 转跳到歌手页
+import { getHotSongsAndInfoAction } from '@/pages/singer/store'
 
 
-export default memo(function WYAlbumCover(props) {
+const WYAlbumCover = (props) => {
   // state and props
   const { info,imgSize=130,allWidth=153,bgp="-845px" } = props;
   // redux hooks
@@ -25,6 +29,13 @@ export default memo(function WYAlbumCover(props) {
       duration: 1//设置自动关闭的秒数
     })
   }
+  // 点击歌手名转跳
+  const handleClick = (id) =>{
+    // console.log(id);
+    dispatch(getHotSongsAndInfoAction(id));
+      // 跳转该路由
+    props.history.replace('/discover/singer');
+  }
   return (
     <AlbumWrapper size={imgSize} width={allWidth} bgp={bgp}>
       <div className="album-image">
@@ -34,8 +45,9 @@ export default memo(function WYAlbumCover(props) {
       </div>
       <div className="album-info">
         <div className={`name ${props.newName?'new-name':''}`}>{info.name}</div>
-        <div className="artist">{info.artist.name}</div>
+        <div className="artist" onClick={e=>handleClick(info.artist.id)}>{info.artist.name}</div>
       </div>
     </AlbumWrapper>
   )
-})
+}
+export default withRouter(memo(WYAlbumCover))

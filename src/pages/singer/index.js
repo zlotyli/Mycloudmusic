@@ -10,12 +10,14 @@ import WYAppMultiport from 'components/app-multiport'
 import WYHotSingers from 'components/hot-singers'
 // 导入子组件
 import WYSingerHeader from './c-cpns/singer-header'
+import WYSingerContent from './c-cpns/singer-content'
 function WYSinger(props) {
   return (
     <SingerWrapper>
       <div className="content wrap-v2">
         <SingerLeft>
           <WYSingerHeader/>
+          <WYSingerContent/>
         </SingerLeft>
         <SingerRight>
           <WYHotSingers/>

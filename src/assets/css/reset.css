@@ -124,6 +124,9 @@ body, textarea, select, input, button {
 .ban_mask{
   background: url(../img/ban_mask.png) no-repeat;
 }
+.icon_3{
+  background: url(../img/icon3.png) no-repeat;
+}
 .lyric-class .ant-message-notice-content {
   position: fixed;
   padding: 0 0;
@@ -138,8 +141,8 @@ body, textarea, select, input, button {
   padding: 5px 0;
   /* color: #c20c0c; */
   font-weight: bold;
-  font-size: 22px;
-  background: linear-gradient(to right, blue, red,blue);
+  font-size: 26px;
+  background: linear-gradient(to right,#003399,#6699CC,#9933CC,#FF0033,#003399);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

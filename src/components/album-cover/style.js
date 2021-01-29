@@ -52,6 +52,10 @@ export const AlbumWrapper = styled.div`
     }
     .artist {
       color: #666;
+      cursor:pointer;
+      &:hover{
+        text-decoration:underline;
+      }
     }
   }
 `
