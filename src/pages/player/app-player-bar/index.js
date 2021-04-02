@@ -23,6 +23,8 @@ import {
 // 导入播放列表组件
 import WYAppPlayerList from '../app-player-panel';
 
+import luxueyang from '@/assets/img/20210402225859.jpg'
+
 export default memo(function WYAppPlayerBar() {
   // 一、state and props
   // 通过state来存储当前播放时间，来设置下方显示的进度
@@ -184,7 +186,7 @@ export default memo(function WYAppPlayerBar() {
         <PlayInfo>
           <div className="image">
             <NavLink to="/discover/player">
-              <img src={getSizeImage(picUrl||'http://s4.music.126.net/style/web2/img/default/default_album.jpg',35)} alt="myimage"/>
+              <img src={getSizeImage(picUrl||luxueyang,35)} alt="myimage" title="luxuy"/>
               <i href="/todo" className="littlecover sprite_player">songs</i>
             </NavLink>
           </div>

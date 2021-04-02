@@ -26,6 +26,9 @@ export function getSizeImage(imgUrl,size){
   if(imgUrl){
     return `${imgUrl}?param=${size}x${size}`;
   }
+  if(imgUrl === `luxueyang`){
+    return imgUrl;
+  }
 }
 // 封装mv封面图片 
 export function getMoreSizeImage(imgUrl,xsize,ysize){
